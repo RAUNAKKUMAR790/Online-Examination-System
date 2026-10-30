@@ -1,0 +1,25 @@
+PROEXAM RE-TEST REPORT
+Date: 2026-10-15
+Package: ProExam_FULL_UPDATED_RETESTED.zip
+
+RESULTS
+- 41/41 functional API smoke checks passed in a disposable local copy using an isolated mock SMTP transport.
+- Student login: correct password accepted; wrong password rejected; invalid college code rejected.
+- Admin login: correct password accepted; wrong password rejected.
+- Registration: OTP request, 6-digit OTP generation, wrong OTP rejection, correct OTP account creation, one-time OTP use, duplicate email rejection, duplicate roll rejection, and login after registration passed.
+- Password reset: OTP request, wrong OTP rejection, correct OTP verification, password update, login with new password, and one-time reset token passed.
+- Password hashes/salts were not included in student login or registration API responses.
+- With SMTP credentials absent, registration and password-reset OTP endpoints correctly returned HTTP 503 with a setup message.
+- 18 key static routes/pages returned HTTP 200.
+- 14 HTML pages inspected; 140 local href/src references checked; 0 broken references.
+- 23 inline scripts checked with Node syntax validation; 0 syntax errors.
+- server.js, JS/*.js, and marks_inline.js passed Node syntax checks.
+- Fixed the stale Student/reset-password.html page so it points to the current email-OTP reset flow rather than the incompatible legacy reset-token flow.
+
+IMPORTANT LIMITATIONS
+- SMTP behavior was tested with an isolated mock transport to validate OTP flow, not to send real email.
+- Live Gmail delivery, inbox/spam delivery, and the user's own Gmail App Password have NOT been verified.
+- This is not a full browser click-through of every exam/admin workflow, a penetration test, or a production security audit.
+- The project uses local JSON files and client-side pages; do not expose it publicly without reviewing authentication/session handling, authorization, HTTPS, rate limiting, backups, and data protection.
+- .env and node_modules are intentionally excluded. Copy .env.example to .env and configure a Gmail App Password before testing real email.
+- Existing server-data files are preserved; do not delete them if you want to retain the saved accounts.

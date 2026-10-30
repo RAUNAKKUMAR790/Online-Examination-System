@@ -1,0 +1,13 @@
+PROEXAM REAL EMAIL OTP SETUP
+
+1. Install Node.js 18+.
+2. Copy .env.example to .env.
+3. Configure SMTP_USER, SMTP_FROM and SMTP_PASS with your Gmail address and Google App Password (not normal Gmail password; remove spaces).
+4. Run npm.cmd install, then npm.cmd start.
+5. Open http://localhost:3000.
+6. Test student registration with an email inbox you can access. Registration is not saved until its OTP is verified.
+7. Test Forgot Password with that registered email. A second OTP is sent for password reset.
+
+OTP behavior: 6 digits, 10-minute expiry, maximum five verification attempts, and a 60-second resend cooldown. Wrong/expired OTPs do not complete registration or password reset.
+
+Never share .env. It is intentionally excluded from the project ZIP. Real Gmail delivery must be tested on the target computer after installing the actual npm dependencies and configuring a valid App Password.

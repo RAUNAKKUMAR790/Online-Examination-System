@@ -1,0 +1,20 @@
+ProExam Responsive Sidebar Fix
+================================
+
+What changed:
+- Removed the legacy Student Dashboard toggle function that was overriding JS/student-nav.js.
+- Centralized sidebar state, overlay visibility, aria-expanded state, and close behavior in JS/student-nav.js.
+- Added responsive handling for narrow phones and short landscape phone windows.
+- The mobile navigation now opens as a polished slide-out drawer with a dimmed backdrop.
+- Added Escape-to-close, backdrop-to-close, focus return, and keyboard focus containment while the drawer is open.
+- The ProExam brand remains in the top bar when the sidebar is closed.
+- Added modern gradient branding, active navigation styling, and touch-friendly controls.
+
+Validation performed:
+- Node syntax check passed for JS/student-nav.js and server.js.
+- 15 HTML files parsed successfully.
+- 24 inline JavaScript blocks passed Node syntax checks.
+- No standalone duplicate toggleStudentMenu function remains in Student HTML files.
+- 7 dynamic template references were excluded from missing-file checks (they are runtime-generated URLs, not static file references).
+- Automated real-browser visual testing was unavailable in this environment; please verify on your target phone and laptop after running the project.
+- Avoid duplicate ProExam branding: expanded sidebar shows its own logo; when the sidebar is collapsed, the topbar logo stays visible and provides the persistent brand.

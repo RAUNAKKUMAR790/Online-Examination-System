@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ProExam Modern</title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/login.css">
+<link rel="stylesheet" href="CSS/app-responsive.css"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1d4ed8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head>
+<body>
+    
+<div class="live-bg exam-wallpaper" aria-hidden="true">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+
+    <!-- Animated classroom / examination atmosphere -->
+    <div class="chalkboard">
+        <div class="chalk-title">PROEXAM • ONLINE EXAMINATION</div>
+        <div class="chalk-equation eq-1">E = mc²</div>
+        <div class="chalk-equation eq-2">∫ x² dx</div>
+        <div class="chalk-equation eq-3">HTML • CSS • JS</div>
+        <div class="chalk-equation eq-4">√(a² + b²) = c</div>
+    </div>
+
+    <div class="study-desk">
+        <div class="book book-one"></div>
+        <div class="book book-two"></div>
+        <div class="paper">
+            <span></span><span></span><span></span><span></span>
+            <b>EXAM</b>
+        </div>
+        <div class="pencil"></div>
+        <div class="clock"><i></i></div>
+    </div>
+
+    <div class="floating-card card-q">
+        <strong>Q.</strong> <span>Choose the correct answer</span>
+        <em>A &nbsp; B &nbsp; C &nbsp; D</em>
+    </div>
+    <div class="floating-card card-result">
+        <strong>✓ 85%</strong>
+        <span>Test Completed</span>
+    </div>
+
+    <div class="floating-symbol symbol-1">✎</div>
+    <div class="floating-symbol symbol-2">?</div>
+    <div class="floating-symbol symbol-3">✓</div>
+    <div class="floating-symbol symbol-4">∑</div>
+    <div class="floating-symbol symbol-5">ABC</div>
+    <div class="floating-symbol symbol-6">01</div>
+
+    <canvas id="loginParticles"></canvas>
+</div>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="login-header">
+                
+<div class="modern-logo">
+    <div class="logo-icon-wrapper">✨</div>
+    <div class="logo-text">Pro<span>Exam</span></div>
+</div>
+
+                <p>Welcome back! Please select your portal.</p>
+            </div>
+            <div class="login-toggle">
+                <div class="btn-student-toggle active" id="btn-student">👨‍🎓 Student Portal</div>
+                <div class="btn-admin-toggle" id="btn-admin">⚙️ Teacher Hub</div>
+            </div>
+            
+            <div id="login-message" class="login-message"></div>
+            <form id="student-form" class="login-form active" novalidate>
+                <div class="form-group"><label>College Code</label><input id="student-college-code" type="text" placeholder="e.g. GPV001" autocomplete="organization" required><div id="student-college-status" class="college-status">Enter a valid college code to continue</div></div>
+                <div id="student-credentials" class="credential-area">
+                    <div class="form-group"><label>Student Login ID</label><input id="student-id" type="text" placeholder="e.g. GPV34" disabled required></div>
+                    <div class="form-group"><label>Password</label><div class="password-wrap"><input id="student-password" type="password" placeholder="••••••••" autocomplete="current-password" disabled required><button type="button" class="password-toggle" data-target="student-password" aria-label="Show password" title="Show password">👁</button></div></div>
+                    <button type="submit" class="btn btn-primary w-100" style="padding:15px;font-size:16px;">Login to Student Profile ➔</button>
+                    <div class="login-links"><a href="Student/register.html">New Student? Create Registration</a><a href="Student/forgot-password.html">Forgot Password?</a></div>
+                </div>
+            </form>
+            <form id="admin-form" class="login-form" novalidate>
+                <div class="form-group"><label>College Code</label><input id="admin-college-code" type="text" placeholder="e.g. GPV001" autocomplete="organization" required><div id="admin-college-status" class="college-status">Enter a valid college code to continue</div></div>
+                <div id="admin-credentials" class="credential-area">
+                    <div class="form-group"><label>Teacher/Admin Login ID</label><input id="admin-id" type="text" placeholder="Teacher ID / Email" disabled required></div>
+                    <div class="form-group"><label>Password</label><div class="password-wrap"><input id="admin-password" type="password" placeholder="••••••••" autocomplete="current-password" disabled required><button type="button" class="password-toggle" data-target="admin-password" aria-label="Show password" title="Show password">👁</button></div></div>
+                    <button type="submit" class="btn btn-dark w-100" style="padding:15px;font-size:16px;">Access Schedule Hub ➔</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="JS/auth.js"></script>
+    <script src="JS/login.js"></script>
+<script>
+(function(){
+  const q=new URLSearchParams(location.search);
+  const id=q.get('studentId'), college=q.get('college');
+  if(id){const el=document.getElementById('student-id');if(el){el.value=id;}}
+  if(college){const el=document.getElementById('student-college-code');if(el){el.value=college;el.dispatchEvent(new Event('input'));}}
+})();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js").catch(()=>{}));
+}
+</script><style>
+.password-wrap{position:relative;display:flex;align-items:center;width:100%}.password-wrap input{width:100%;padding-right:48px!important}.password-toggle{position:absolute;right:7px;top:50%;transform:translateY(-50%);border:0;background:transparent;cursor:pointer;border-radius:8px;padding:7px;font-size:17px;line-height:1}.password-toggle:focus-visible{outline:2px solid #4f46e5;outline-offset:2px}
+</style>
+<script>
+document.querySelectorAll('.password-toggle').forEach(button=>button.addEventListener('click',()=>{const input=document.getElementById(button.dataset.target);if(!input)return;const show=input.type==='password';input.type=show?'text':'password';button.textContent=show?'🙈':'👁';button.setAttribute('aria-label',show?'Hide password':'Show password');button.title=show?'Hide password':'Show password';}));
+</script>
+</body>
+</html>

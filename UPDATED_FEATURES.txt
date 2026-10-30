@@ -1,0 +1,18 @@
+PROEXAM — RETESTED PACKAGE
+
+- Student and Admin login endpoints tested with valid and invalid credentials.
+- Login password fields include Show/Hide Password controls.
+- Student registration uses email OTP before account creation.
+- OTP expires after 10 minutes, has a maximum of five attempts, and cannot be reused.
+- Student IDs are generated from college prefix + roll number (example GPV34).
+- Forgot Password uses a 6-digit email OTP and one-time reset token with a 10-minute expiry.
+- Passwords are stored as salted scrypt hashes on the server; API responses omit password hashes/salts.
+- Old standalone reset-password page now links to the current email-OTP reset flow.
+- Local API smoke tests: 41/41 passed with mock SMTP; static route/reference/script checks passed.
+- Live Gmail delivery was not verified. Configure .env using .env.example before testing real delivery.
+- Existing Admin/Student pages, Copy Checking, exam pages, marks pages, and result/PDF assets are retained.
+
+College code for Government Polytechnic Vaishali: GPV001.
+Student ID example: GPV34.
+
+For public deployment, conduct a security review and add HTTPS, robust session handling, authorization checks, rate limiting, and safe database/storage practices.

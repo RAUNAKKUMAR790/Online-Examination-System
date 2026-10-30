@@ -1,0 +1,8 @@
+ProExam Admin Login
+===================
+College Code: GPV001
+Admin ID: admin
+Password: Admin@12345
+
+The Admin account is pre-saved in JS/auth.js.
+For security, do not share these credentials publicly; change the password before production deployment.

@@ -1,0 +1,18 @@
+{
+  "name": "ProExam \u2013 Online Examination Platform",
+  "short_name": "ProExam",
+  "description": "Professional online examination and assessment platform.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "Assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

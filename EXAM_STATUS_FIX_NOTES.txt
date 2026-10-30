@@ -1,0 +1,15 @@
+ProExam Exam Status Fix
+
+Admin Schedule Hub now separates exams into:
+- Upcoming Scheduled: current time is before the configured start time.
+- Live / Active Tests: current time is at/after start and at/before the configured end time.
+- Expired / Completed: current time is after the configured end time.
+
+End time is read from endDate + endTime when both exist; older records fall back to start date/time + duration via getExamEndDateTime().
+The Schedule Hub reclassifies exams automatically every 30 seconds and updates upcoming countdowns every second. Exam History status badges use the same time-window logic.
+
+Validation performed:
+- ZIP archive integrity checked.
+- 24 inline JavaScript blocks passed `node --check`.
+- JS/database.js passed `node --check`.
+- Real browser/device and live multi-user testing were not performed in this environment.
